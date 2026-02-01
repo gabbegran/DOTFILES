@@ -1,0 +1,72 @@
+#
+# pattern: Can either be the exact "app_name" (app_id/class) of the window or a regex string in the format of `"/{regex}/"` which will match the window "title".
+# icon: Your beatiful icon
+#
+# verbose format:
+#
+# '{pattern}' = { type = 'generic' | 'exact', value = '{icon}' }
+#
+#
+# If it couldn't match something it will print:
+#
+# WARN [sworkstyle:config] No match for '{app_name}' with title '{title}'
+#
+# You can use {title} to do a generic matching
+# You can use {app_name} to do an exact match
+# You can find icons for nerd fonts here: https://www.nerdfonts.com/cheat-sheet
+# Anything added in here will override the defaults in the package.
+
+fallback = ''
+unique = true
+
+[matching]
+'chromium' = ''
+'discord' = ''
+'Hexchat' = ''
+'telegramdesktop' = ''
+'signal' = ''
+'Steam' = ''
+'vlc' = ''
+'org.qbittorrent.qBittorrent' = ''
+'Thunderbird' = ''
+'thunderbird' = ''
+'Insomnia' = ''
+'gnome-calendar' = ''
+'font-manager' = ''
+'Google-chrome' = ''
+'Chromium' = ''
+'Brave-browser' = ''
+'qutebrowser' = ''
+'org.qutebrowser.qutebrowser' = ''
+'Slack' = ''
+'Code' = ' '
+'code-oss' = ' '
+'jetbrains-goland' = ' '
+'jetbrains-pycharm' = ''
+'jetbrains-rubymine' = ''
+'jetbrains-webstorm' = ' '
+'jetbrains-clion' = ' '
+'jetbrains-idea' = ''
+'Spotify' = ''
+'firefox' = ' '
+'/(?i)Github.*Firefox/' = ' '
+'/(?i)Github.*Chromium/' = ' '
+'org.mozilla.firefox' = ' '
+'Firefox' = ' '
+'Nightly' = ' '
+'firefoxdeveloperedition' = ''
+'/nvim ?\w*/' = ''
+'/npm/' = ''
+'/node/' = ''
+'/yarn/' = ''
+'ranger' = ""
+'thunar' = ""
+'org.gnome.Nautilus' = ""
+'kitty' = ''
+'footclient' = ''
+'foot' = ''
+'alacritty' = ''
+'todoist-wrapper' = ''
+'1Password' = ''
+'hu.irl.cameractrls' = ''
+'org.gnome.Shotwell' = ''

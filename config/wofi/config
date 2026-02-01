@@ -1,0 +1,19 @@
+mode=drun
+width=600
+height=400
+always_parse_args=true
+show_all=false
+print_command=true
+insensitive=true
+prompt=Search Apps...
+layer=overlay
+
+
+# Set these to 0 to align with the center of the screen
+xoffset=675
+yoffset=0
+
+# Use 'center' for location (0 is the default center)
+location=center
+halign=fill
+valign=center

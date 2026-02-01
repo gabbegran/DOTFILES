@@ -1,0 +1,32 @@
+[manager]
+# Highlights the current file by inverting colors
+hovered         = { fg = "black", bg = "white", bold = true }
+# Style for files you have marked/selected
+selection       = { fg = "black", bg = "white", italic = true }
+# Style for the preview pane cursor
+preview_hovered = { underline = true }
+
+[status]
+# High-contrast status bar
+separator_open  = ""
+separator_close = ""
+main            = { fg = "white", bg = "black" }
+alt             = { fg = "black", bg = "white" }
+position        = { fg = "black", bg = "white" }
+
+[filetype]
+# This section strips colors from all file types (images, videos, archives, etc.)
+rules = [
+	{ mime = "*", fg = "white" }
+]
+
+[input]
+border   = { fg = "white" }
+title    = { fg = "white" }
+value    = { fg = "white" }
+selected = { reversed = true }
+
+[select]
+border   = { fg = "white" }
+active   = { fg = "black", bg = "white" }
+inactive = { fg = "white" }
