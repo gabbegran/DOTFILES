@@ -1,0 +1,182 @@
+/*
+ * iOS 26 Inspired SwayNC Theme
+ * Matches Waybar "Black Glass + Chromatic Aberration"
+ */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-size: 13px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root {
+    --bg-color: rgba(10, 10, 10, 0.55);
+    --bg-color-hover: rgba(255, 255, 255, 0.08);
+    --text-color: rgba(255, 255, 255, 0.70);
+    --text-color-bright: rgba(255, 255, 255, 0.90);
+    --border-radius: 14px;
+    --chromatic-shadow: 
+         1.2px 0px 0px rgba(200, 190, 180, 0.28),
+        -1.2px 0px 0px rgba(170, 185, 195, 0.28);
+}
+
+/* Base Windows */
+notificationwindow, blankwindow {
+    background: transparent;
+}
+
+/* Control Center */
+.control-center {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    margin: 10px;
+    /* Chromatic aberration on the whole CC might be too much, but let's apply it to text */
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    opacity: 0.5;
+    color: var(--text-color);
+}
+
+/* Notifications */
+.notification-row {
+    outline: none;
+    margin: 6px 3px;
+}
+
+.notification-background {
+    padding: 0;
+}
+
+.notification {
+    border-radius: var(--border-radius);
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
+    border: none;
+}
+
+.notification-default-action {
+    padding: 4px;
+    border-radius: var(--border-radius);
+}
+
+.notification-default-action:hover {
+    background: var(--bg-color-hover);
+}
+
+.summary {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-color-bright);
+    text-shadow: var(--chromatic-shadow);
+}
+
+.body {
+    font-size: 13px;
+    color: var(--text-color);
+    text-shadow: var(--chromatic-shadow);
+}
+
+.time {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* Close Button */
+.close-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 100%;
+    margin: 4px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Widgets */
+.widget-title {
+    margin: 12px;
+    font-size: 1.2rem;
+    color: var(--text-color-bright);
+    text-shadow: var(--chromatic-shadow);
+}
+
+.widget-title > button {
+    background: var(--bg-color-hover);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 4px 12px;
+}
+
+.widget-title > button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.widget-dnd {
+    margin: 8px 12px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.widget-dnd switch {
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.widget-dnd switch slider {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 14px;
+}
+
+/* MPRIS Widget */
+.widget-mpris {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    margin: 12px;
+}
+
+.widget-mpris-player {
+    padding: 8px;
+}
+
+.widget-mpris-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--text-color-bright);
+    text-shadow: var(--chromatic-shadow);
+}
+
+.widget-mpris-subtitle {
+    font-size: 13px;
+    color: var(--text-color);
+    text-shadow: var(--chromatic-shadow);
+}
+
+/* Buttons Widget (if used) */
+.widget-buttons-grid {
+    padding: 8px;
+    margin: 8px;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.widget-buttons-grid button {
+    background: var(--bg-color);
+    border-radius: 12px;
+    color: var(--text-color);
+    margin: 4px;
+}
+
+.widget-buttons-grid button:hover {
+    background: var(--bg-color-hover);
+}

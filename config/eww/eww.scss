@@ -1,0 +1,26 @@
+// ~/.config/eww/eww.scss
+
+$bg: #0f0f0f;         // Deep Black
+$fg: #ffffff;         // Pure White
+$gray-dark: #2a2a2a;  // Surface color
+$gray-light: #a0a0a0; // Muted text
+
+* {
+  all: unset; // Reset default GTK styling
+  font-family: "JetBrains Mono", "Inter", sans-serif;
+}
+
+.bar-window {
+  background-color: $bg;
+  color: $fg;
+  border: 1px solid $gray-dark;
+}
+
+.widget-button {
+  padding: 5px 10px;
+  background-color: $gray-dark;
+  &:hover {
+    background-color: $fg;
+    color: $bg;
+  }
+}

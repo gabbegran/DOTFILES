@@ -8,10 +8,14 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
-plugins=(git web-search tailscale zsh-calc sudo)
+plugins=(git web-search tailscale zsh-calc sudo ssh-agent)
 
 
 source $ZSH/oh-my-zsh.sh
+
+bindkey '^Z' undo
+bindkey '^[[90;6u' redo
+
 
 
 alias hx="helix"
@@ -26,14 +30,19 @@ alias tsenpi5="sudo tailscale set --exit-node=pi5 --exit-node-allow-lan-access=t
 alias tsen="sudo tailscale set --exit-node="
 alias cat="bat --style=plain --paging=never"
 alias cd="z"
-alias weather="curl wttr.in/Stockholm" # Replace with your city
+alias weather="curl wttr.in/Uppsala" # Replace with your city
 alias help="tldr"
 alias rm="trash-put"
 alias tlist="trash-list"
 alias trestore="trash-restore"
 alias cheat="curl -s https://cht.sh/"
 alias ai="gemini"
-
+alias larp="fastfetch"
+alias deploy="/home/za66e/websites/template/deploy.sh"
+alias vpnCH="tailscale set --exit-node=ch-zrh-wg-401.mullvad.ts.net --exit-node-allow-lan-access=true"
+alias vpnNO="tailscale set --exit-node=no-osl-wg-101.mullvad.ts.net --exit-node-allow-lan-access=true"
+alias vpnPI5="tailscale set --exit-node=pi5 --exit-node-allow-lan-access=true"
+alias printer="lp -d HP_LaserJet_P2055dn"
 
 # Function to search text and preview with bat
 findtext() {
@@ -64,7 +73,20 @@ fastfetch
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(thefuck --alias)"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 export PATH=$PATH:/home/za66e/.spicetify
 export PATH=$PATH:~/.spicetify
+
+
+
+
+
+
+
+
+
+
+
+zstyle :omz:plugins:ssh-agent identities id_rsa

@@ -25,3 +25,8 @@ style = { shape = "Block", blinking = "Always" }
 import = [
     "/home/za66e/.config/alacritty/themes/theme.toml"
 ]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

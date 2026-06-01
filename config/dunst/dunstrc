@@ -1,55 +1,77 @@
 [global]
-    ### Display ###
     monitor = 0
     follow = mouse
-    width = 300
-    height = 200
-    origin = top-right
-    offset = 20x20
+
+    width = (0, 320)
+    height = (0, 120)
+    origin = bottom-center
+    offset = (12, 12)
     scale = 0
-    notification_limit = 5
 
-    ### Progress Bar ###
-    progress_bar = true
-    progress_bar_height = 10
-    progress_bar_frame_width = 1
-    progress_bar_min_width = 150
-    progress_bar_max_width = 300
 
-    ### UI Design ###
-    # Use a clean sans-serif font like Inter or JetBrains Mono
-    font = JetBrains Mono 10
-    
-    frame_width = 2
-    frame_color = "#222222"
+    corner_radius = 16
+    frame_width = 0
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 32
+    padding = 10
+    horizontal_padding = 12
+    width = (0, 300)
+
     separator_color = frame
-    corner_radius = 8 # Set to 8 or 10 if you prefer rounded corners
+    sort = yes
 
-    ### Text & Icons ###
-    line_height = 4
+    idle_threshold = 120
+    font = JetBrainsMono Nerd Font 11
+    line_height = 2
     markup = full
     format = "<b>%s</b>\n%b"
     alignment = left
     vertical_alignment = center
     show_age_threshold = 60
-    word_wrap = yes
+    ellipsize = middle
     ignore_newline = no
     stack_duplicates = true
     hide_duplicate_count = false
-    show_indicators = yes
+    show_indicators = no
 
+    icon_position = left
+    min_icon_size = 24
+    max_icon_size = 36
+
+    sticky_history = yes
+    history_length = 20
+
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 14
+    ignore_dbusclose = false
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
 [urgency_low]
-    background = "#000000"
-    foreground = "#888888" # Dimmer white/grey for low priority
-    timeout = 5
+    background = "#0a0a0e"
+    foreground = "#8a8a8a"
+    frame_color = "#1a1a1a"
+    timeout = 4
+    default_icon = dialog-information
 
 [urgency_normal]
-    background = "#000000"
-    foreground = "#FFFFFF"
-    timeout = 10
+    background = "#0a0a0e"
+    foreground = "#b2b2b2"
+    frame_color = "#1a1a1a"
+    timeout = 6
+    default_icon = dialog-information
 
 [urgency_critical]
-    background = "#000000"
-    foreground = "#FFFFFF"
-    frame_color = "#222222" # Keep it white, maybe use a thicker border later
+    background = "#0f0808"
+    foreground = "#c87870"
+    frame_color = "#2a1212"
     timeout = 0
+    default_icon = dialog-error

@@ -1,0 +1,9 @@
+[[left]]
+# Trigger when the mouse hits the top-right corner
+# (Change to bottom_right if you prefer)
+[left.top_right]
+command = "hyprctl dispatch togglespecialworkspace"
+# How close to the corner (in pixels) the mouse needs to be
+radius = 10
+# Time in ms to wait before triggering (prevents accidental triggers)
+timeout = 150

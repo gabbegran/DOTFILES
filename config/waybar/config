@@ -1,45 +1,64 @@
 {
     "layer": "top",
     "position": "top",
-    "spacing": 0,
+    "mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
     "height": 50,
+    "spacing": 0,
+    "margin-top": 5,
+    "margin-bottom": 5,
+    "margin-left": 0,
+    "margin-right": 0,
     "modules-left": [
+        "clock",
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock"
     ],
     "modules-right": [
+        "custom/tailscale",
         "network",
-        "memory",
+        "custom/spotify",
         "wireplumber",
+        "memory",
         "battery",
+        "custom/notification",
         "custom/power"
     ],
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "on-click-right": "fullscreen",
-        "icon-theme": "WhiteSur",
-        "icon-size": 25,
-        "tooltip-format": "{title}"
-    },
-    "hyprland/workspaces": {
-        "on-click": "activate",
+    "custom/notification": {
+        "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-            "default": "",
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
+            "notification": "",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": "",
+            "inhibited-notification": "",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "default": "○",
             "active": "#",
-            "urgent": "#"
+            "urgent": "!"
         },
         "persistent-workspaces": {
             "1": [],
@@ -49,95 +68,64 @@
             "5": []
         }
     },
-    "memory": {
-        "interval": 5,
-        "format":  "{}   󰍛",
-        "max-length": 10
-    },
-    "tray": {
-        "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-	
-    },
-    "clock": {
-        "tooltip-format": "{calendar}",
-        "format-alt": "  {:%a, %d %b %Y}",
-        "format": "{:%H:%M}"
-    },
-    "custom/power": {
-        "format":"⏻ ",
-        "on-click": "~/.config/waybar/scripts/power_menu.sh",
+    "custom/spotify": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 2,
+        "exec": "~/.config/waybar/scripts/spotify.sh",
+        "on-click": "playerctl --player=spotify play-pause",
+        "on-click-right": "playerctl --player=spotify next",
+        "on-click-middle": "playerctl --player=spotify previous",
         "tooltip": false
     },
-    
+    "memory": {
+        "interval": 5,
+        "format": "{}% 󰍛",
+        "max-length": 10,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a, %d %b %Y}",
+        "tooltip": false
+    },
+    "custom/tailscale": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 2,
+        "tooltip": false,
+        "exec": "~/.config/waybar/scripts/tailscale.sh",
+        "on-click": "~/.config/hypr/scripts/launch_ktailctl.sh"
+    },
     "network": {
-        "format-wifi" : "{essid}   {icon} ",
-        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
-        "format-ethernet": "󰀂",
-        "format-disconnected" : "󰖪",
-	    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-	    "tooltip-format-disconnected": "Disconnected",
-	    "interval": 1,
-	    "nospacing": 1,
+        "format-wifi": "{icon}  {essid}  ↓{bandwidthDownBytes:>4}  ↑{bandwidthUpBytes:>4}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "󰀂  {ifname}  ↓{bandwidthDownBytes:>4}  ↑{bandwidthUpBytes:>4}",
+        "format-disconnected": "󰖪",
+        "tooltip": false,
+        "interval": 2,
         "on-click": "hyprctl dispatch exec '[float; size 450 600; move cursor -50% 5%] kitty --class nm-menu -e nmtui'"
     },
     "wireplumber": {
-        "format": "{volume}    {icon}",
-        "format-bluetooth": "󰂰",
-        "nospacing": 1,
-        "tooltip-format": "Volume : {volume}%",
+        "format": "{volume}% {icon}",
         "format-muted": "󰝟",
-        "format-icons": {
-            "headphone": "",
-            "default": ["󰖀","󰕾",""]
-        },
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
         "on-click": "pamixer -t",
-        "scroll-step": 1
-    },
-    "custom/logo": {
-        "format": "  ",
-        "tooltip": false,
-    },
-    "battery": {
-        "format": "{capacity}   {icon}",
-        "format-icons": {
-            "charging": [
-                "󰢜",
-                "󰂆",
-                "󰂇",
-                "󰂈",
-                "󰢝",
-                "󰂉",
-                "󰢞",
-                "󰂊",
-                "󰂋",
-                "󰂅"
-            ],
-            "default": [
-                "󰁺",
-                "󰁻",
-                "󰁼",
-                "󰁽",
-                "󰁾",
-                "󰁿",
-                "󰂀",
-                "󰂁",
-                "󰂂",
-                "󰁹"
-            ]
-        },
-        "format-full": "Charged ",
-        "interval": 5,
-        "states": {
-            "warning": 30,
-            "critical": 10
-        },
         "tooltip": false
     },
-  //  "custom/power": {
-  //    "format": "󰤆",
-  //      "tooltip": false,
-  //      "on-click": "wlogout"
-  //  }
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󱐋",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "~/.config/waybar/scripts/power_menu.sh",
+        "tooltip": false
+    }
 }

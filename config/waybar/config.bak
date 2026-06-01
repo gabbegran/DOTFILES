@@ -1,0 +1,105 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 45,
+    "spacing": 0,
+    "margin-top": 5,
+    "margin-bottom": 5,
+    "margin-left": 0,
+    "margin-right": 0,
+    "modules-left": [
+        "clock",
+        "hyprland/workspaces",
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "custom/tailscale",
+        "network",
+        "custom/spotify",
+        "wireplumber",
+        "memory",
+        "battery",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "○",
+            "active": "#",
+            "urgent": "!"
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    "custom/spotify": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 2,
+        "exec": "~/.config/waybar/scripts/spotify.sh",
+        "on-click": "playerctl --player=spotify play-pause",
+        "on-click-right": "playerctl --player=spotify next",
+        "on-click-middle": "playerctl --player=spotify previous",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 5,
+        "format": "{}% 󰍛",
+        "max-length": 10,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a, %d %b %Y}",
+        "tooltip": false
+    },
+    "custom/tailscale": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 2,
+        "tooltip": false,
+        "exec": "~/.config/waybar/scripts/tailscale.sh",
+        "on-click": "~/.config/hypr/scripts/launch_ktailctl.sh"
+    },
+    "network": {
+        "format-wifi": "{icon}  {essid}  ↓{bandwidthDownBytes:>4}  ↑{bandwidthUpBytes:>4}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "󰀂  {ifname}  ↓{bandwidthDownBytes:>4}  ↑{bandwidthUpBytes:>4}",
+        "format-disconnected": "󰖪",
+        "tooltip": false,
+        "interval": 2,
+        "on-click": "hyprctl dispatch exec '[float; size 450 600; move cursor -50% 5%] kitty --class nm-menu -e nmtui'"
+    },
+        "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "󰝟",
+        "format-icons": ["󰖀", "󰕾", ""],
+        "on-click": "pamixer -t",
+        "tooltip": false
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󱐋",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "~/.config/waybar/scripts/power_menu.sh",
+        "tooltip": false
+    }
+}

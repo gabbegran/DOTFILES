@@ -32,6 +32,12 @@ PACKAGES=(
     "jq" # Often needed for scripts
     "cliphist" # Common clipboard manager for hyprland
     "wl-clipboard"
+    "swaync"
+    "ranger"
+    "htop"
+    "thefuck"
+    "polybar"
+    "i3-wm"
 )
 
 # AUR Packages (might need an AUR helper)
@@ -40,6 +46,15 @@ AUR_PACKAGES=(
     "niri" 
     "hyprshot"
     "spotify" 
+    "eww"
+    "ghostty-git"
+    "wlogout"
+    "superfile-bin"
+    "nwg-look"
+    "nwg-dock-hyprland"
+    "waycorner"
+    "spicetify-cli"
+    "spotify-tui"
 )
 
 echo "Detected packages from config:"
