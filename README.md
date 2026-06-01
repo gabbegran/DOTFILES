@@ -28,7 +28,7 @@ chmod +x setup_configs.sh
 - **WM/DE:** Hyprland, i3, Niri
 - **Terminals:** Alacritty, Foot, Kitty, Ghostty
 - **File Managers:** Yazi, Ranger, Superfile
-- **Others:** Waybar, Polybar, Rofi, Wofi, Helix, Dunst, Spicetify, and more.
+- **Others:** Waybar, Polybar, Rofi, Wofi, Helix, Dunst, Spicetify, SDDM (MacTahoe), and more.
 
 ## Required Fonts
 To make the UI look correct, you should install these fonts:
