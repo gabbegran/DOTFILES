@@ -29,3 +29,10 @@ chmod +x setup_configs.sh
 - **Terminals:** Alacritty, Foot, Kitty, Ghostty
 - **File Managers:** Yazi, Ranger, Superfile
 - **Others:** Waybar, Polybar, Rofi, Wofi, Helix, Dunst, Spicetify, and more.
+
+## Required Fonts
+To make the UI look correct, you should install these fonts:
+- **JetBrainsMono Nerd Font** (Main terminal/UI font)
+- **MesloLGS NF** (For Powerlevel10k)
+- **SF Pro Display / Text** (Apple fonts used in some configs)
+- **Noto Sans/Serif** (General fallback)

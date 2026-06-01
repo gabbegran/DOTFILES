@@ -38,6 +38,9 @@ PACKAGES=(
     "thefuck"
     "polybar"
     "i3-wm"
+    "ttf-jetbrains-mono-nerd"
+    "ttf-meslo-nerd-font-powerlevel10k"
+    "adobe-source-code-pro-fonts"
 )
 
 # AUR Packages (might need an AUR helper)
